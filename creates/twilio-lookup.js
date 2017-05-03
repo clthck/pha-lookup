@@ -22,7 +22,7 @@ module.exports = {
       const client = new twilio.LookupsClient(process.env.TWILIO_LOOKUP_ACCOUNT_SID, process.env.TWILIO_LOOKUP_AUTH_TOKEN);
       return client.phoneNumbers(bundle.inputData.phoneNumber)
               .get({
-                type: 'carrier'
+                type: ['carrier', 'caller-name']
               })
               .then(data => ({
                 rawHtml: data
