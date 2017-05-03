@@ -1,0 +1,27 @@
+{
+  "name": "pha-lookup",
+  "version": "1.0.0",
+  "description": "PHA Lookup app that grabs JSON data from Twilio's Lookup API",
+  "repository": "zapier/zapier-platform-example-app-minimal",
+  "homepage": "https://zapier.com/",
+  "author": "Joey Cruz <joey.ray.cruz@gmail.com>",
+  "license": "BSD-3-Clause",
+  "main": "index.js",
+  "scripts": {
+    "test": "node node_modules/mocha/bin/mocha --recursive"
+  },
+  "engines": {
+    "node": ">=4.3.0",
+    "npm": ">=2.0.0"
+  },
+  "dependencies": {
+    "twilio": "^2.11.1",
+    "zapier-platform-core": "1.0.10"
+  },
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-eslint": "^7.2.3",
+    "mocha": "3.2.0",
+    "should": "11.2.1"
+  }
+}
