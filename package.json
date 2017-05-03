@@ -1,6 +1,6 @@
 {
   "name": "pha-lookup",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "PHA Lookup app that grabs JSON data from Twilio's Lookup API",
   "repository": "zapier/zapier-platform-example-app-minimal",
   "homepage": "https://zapier.com/",

@@ -20,28 +20,12 @@ module.exports = {
     ],
     perform: (z, bundle) => {
       const client = new twilio.LookupsClient(process.env.TWILIO_LOOKUP_ACCOUNT_SID, process.env.TWILIO_LOOKUP_AUTH_TOKEN);
-      return client.phoneNumbers(bundle.inputData.phoneNumber)
-              .get({
-                type: ['carrier', 'caller-name']
-              })
-              .then(data => ({
-                rawHtml: data
-              }));
-      
-      // return csrfLogin({
-      //     host: 'https://www.truthfinder.com',
-      //     loginFormSelector: 'name="login"',
-      //     loginUsernameField: 'email',
-      //     loginPasswordField: 'password',
-      //     tokenFieldName: 'csrf_token',
-      //     loginPath: '/login',
-      //     email: process.env.TRUTHFINDER_LOGIN_EMAIL,
-      //     password: process.env.TRUTHFINDER_LOGIN_PASSWORD
-      //   })
-      //   .then(info => info.requestAsync(`/dashboard/report/phone/${bundle.inputData.phoneNumber}`, {}))
-      //   .then(data => ({
-      //     rawHtml: data
-      //   }));
+      return client
+        .phoneNumbers(bundle.inputData.phoneNumber)
+        .get({
+          type: ['carrier', 'caller-name']
+        })
+        .then(data => ({ data }));
     }
   }
 };
