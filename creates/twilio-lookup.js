@@ -1,3 +1,4 @@
+const _ = require('lodash');
 const twilio = require('twilio');
 
 // We recommend writing your creates separate like this and rolling them
@@ -23,9 +24,18 @@ module.exports = {
       return client
         .phoneNumbers(bundle.inputData.phoneNumber)
         .get({
-          type: ['carrier', 'caller-name']
+          type: 'caller-name'
         })
-        .then(data => ({ data }));
+        .then(data1 => (
+          client
+            .phoneNumbers(bundle.inputData.phoneNumber)
+            .get({
+              type: 'carrier'
+            })
+            .then(data2 => (
+              { data: _.merge({}, data1, _.pick(data2, ['carrier'])) }
+            ))
+        ));
     }
   }
 };
